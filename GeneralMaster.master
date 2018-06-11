@@ -1,0 +1,106 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="GeneralMaster.master.cs" Inherits="GeneralMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="CSS/GeneralMasterStyle.css" rel="stylesheet" type="text/css"/>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script >
+        var imgno = 1;
+        function moveslider() {
+            if (imgno > 4) {
+                imgno = 1;
+            }
+            document.getElementById("imgslide").src = "images/" + imgno + ".jpg";
+            imgno++;
+            window.setTimeout("moveslider()", 1100);
+        }
+    </script>
+    <style type="text/css">
+        .newStyle1 {
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            font-size: xx-large;
+            font-weight: bold;
+        }
+        .newStyle2 {
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            font-size: xx-large;
+            font-weight: bold;
+        }
+        .newStyle3 {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-size: xx-large;
+            font-weight: bold;
+            word-spacing: 5em;
+            letter-spacing: 1em;
+        }
+    </style>
+</head>
+<body onload="moveslider()">
+    <form id="form1" runat="server">
+    <center>
+    <div id="container">
+        <div id="header">
+                   <div id="logo"> 
+                      <asp:Image 
+                           ID="Image1" runat="server" Height="130px" 
+                           ImageUrl="~/images/new.png" Width="100%" />
+                   </div> 
+                   <div id="sitetitle"> 
+                       <strong><span class="newStyle3">ONLINE BANKING</span></strong>
+                   </div>
+        </div>
+        <div id="menu">
+            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" ForeColor="#CC00CC">
+                <DynamicMenuItemStyle BackColor="#FFCEFF" HorizontalPadding="15px" 
+                    VerticalPadding="5px" ForeColor="#339966" />
+                <DynamicMenuStyle BackColor="#FFCEFF" />
+                <Items>
+                    <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Services" Value="Services" NavigateUrl="~/Services.aspx">
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Online Banking" Value="Online Banking">
+                        <asp:MenuItem Text="Benefits" Value="New Item" NavigateUrl="~/Benefits.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Who can register?" Value="Who can register?" NavigateUrl="~/WhoCanRegister.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Register Here" Value="Register Here" NavigateUrl="~/RegisterHere.aspx"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Contact us" Value="Contact us" NavigateUrl="~/ContactUs.aspx">
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Login" Value="Login" NavigateUrl="~/Login.aspx">
+                    </asp:MenuItem>
+                </Items>
+                <StaticHoverStyle BackColor="#FFCEFF" />
+                <StaticMenuItemStyle Font-Size="Large" ForeColor="#339966" 
+                    HorizontalPadding="70px" VerticalPadding="14px" />
+                <StaticMenuStyle BackColor="#FFFBA8" />
+            </asp:Menu>
+        </div> 
+        <div id="slider">
+            <img id="imgslide" width="100%" height="220px"/>
+        </div>
+    <div id="main"> 
+               <div id="lmain">
+                   <video width="250" height="230" controls="controls">
+    
+          <source src="videos/---How to Change Your Home Screen Icon Shapes in iOS 7 - YouTube.mp4" />
+               </div>
+               <div id="rmain">
+                         <div id="heading">
+                             <asp:ContentPlaceHolder ID="CPHHeading" runat="server">
+                             </asp:ContentPlaceHolder>
+                         </div>
+                         <div id="content">
+                             <asp:ContentPlaceHolder ID="CPHContent" runat="server">
+                             </asp:ContentPlaceHolder>
+                         </div>               
+      </div> 
+    </div>
+        <div id="footer"></div>
+    </div>
+    </center>
+    </form>
+</body>
+</html>
